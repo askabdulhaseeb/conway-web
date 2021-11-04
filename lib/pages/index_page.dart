@@ -1,3 +1,4 @@
+import 'package:conway_web/pages/contact_page.dart';
 import 'package:conway_web/pages/mineral_page.dart';
 import 'package:flutter/material.dart';
 import 'landing_page.dart';
@@ -15,6 +16,7 @@ class IndexPage extends StatelessWidget {
           LandingPage(),
           SuggestionPage(),
           MineralPage(),
+          ContactPage(),
         ],
       ),
     );
