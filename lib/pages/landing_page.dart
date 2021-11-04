@@ -9,17 +9,18 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size _size = MediaQuery.of(context).size;
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: <Widget>[
-            _appBar(width: _size.width),
-            Expanded(
-              child: _imageSection(_size, context),
-            ),
-          ],
-        ),
+    return SizedBox(
+      height: _size.height * 0.94,
+      width: double.infinity,
+      // padding: const EdgeInsets.all(0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          _appBar(width: _size.width),
+          Expanded(
+            child: _imageSection(_size, context),
+          ),
+        ],
       ),
     );
   }
@@ -57,7 +58,7 @@ class LandingPage extends StatelessWidget {
                 ),
               ),
               _contactButton(),
-              const SizedBox(height: 16),
+              const SizedBox(height: 24),
             ],
           )
         : Row(
@@ -65,33 +66,36 @@ class LandingPage extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Opacity(
-                        opacity: 0.15,
-                        child: Text(
-                          'Pure Water',
-                          style: TextStyle(
-                            fontSize: _size.width * 0.07,
-                            fontWeight: FontWeight.w900,
-                            color: Theme.of(context).primaryColor,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 32),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Opacity(
+                          opacity: 0.15,
+                          child: Text(
+                            'Pure Water',
+                            style: TextStyle(
+                              fontSize: _size.width * 0.07,
+                              fontWeight: FontWeight.w900,
+                              color: Theme.of(context).primaryColor,
+                            ),
                           ),
                         ),
-                      ),
-                      Opacity(
-                        opacity: 0.3,
-                        child: Text(
-                          'Healthy Life',
-                          style: TextStyle(
-                            fontSize: _size.width * 0.07,
-                            fontWeight: FontWeight.w900,
-                            color: Theme.of(context).primaryColor,
+                        Opacity(
+                          opacity: 0.3,
+                          child: Text(
+                            'Healthy Life',
+                            style: TextStyle(
+                              fontSize: _size.width * 0.07,
+                              fontWeight: FontWeight.w900,
+                              color: Theme.of(context).primaryColor,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   _contactButton(makePadding: true),
                 ],
@@ -121,31 +125,28 @@ class LandingPage extends StatelessWidget {
 
   Widget _appBar({required double width}) {
     return (width < Utilities.mobileLimit)
-        ? Padding(
-            padding: const EdgeInsets.only(top: 24),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    _appBapTextButton(text: 'Water Delivery'),
-                    _appBapTextButton(text: 'Filteration'),
-                  ],
-                ),
-                SizedBox(
-                  height: 100,
-                  width: 100,
-                  child: Image.asset(CustomImages.logo),
-                ),
-                Column(
-                  children: <Widget>[
-                    _appBapTextButton(text: 'Vending'),
-                    _appBapTextButton(text: 'Bulk/Wholesale'),
-                  ],
-                ),
-              ],
-            ),
+        ? Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  _appBapTextButton(text: 'Water Delivery'),
+                  _appBapTextButton(text: 'Filteration'),
+                ],
+              ),
+              SizedBox(
+                height: 100,
+                width: 100,
+                child: Image.asset(CustomImages.logo),
+              ),
+              Column(
+                children: <Widget>[
+                  _appBapTextButton(text: 'Vending'),
+                  _appBapTextButton(text: 'Bulk/Wholesale'),
+                ],
+              ),
+            ],
           )
         : Row(
             mainAxisAlignment: MainAxisAlignment.center,
