@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../utilities/custom_images.dart';
+import '../utilities/utilities.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
@@ -6,6 +8,177 @@ class LandingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    final Size _size = MediaQuery.of(context).size;
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          children: <Widget>[
+            _appBar(width: _size.width),
+            Expanded(
+              child: _imageSection(_size, context),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _imageSection(Size _size, BuildContext context) {
+    return (_size.width < Utilities.mobileLimit)
+        ? Column(
+            children: <Widget>[
+              Opacity(
+                opacity: 0.15,
+                child: Text(
+                  'Pure Water',
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.w900,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                ),
+              ),
+              Opacity(
+                opacity: 0.3,
+                child: Text(
+                  'Healthy Life',
+                  style: TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.w900,
+                    color: Theme.of(context).primaryColor,
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Image.asset(
+                  CustomImages.frontImage,
+                  fit: BoxFit.contain,
+                ),
+              ),
+              _contactButton(),
+              const SizedBox(height: 16),
+            ],
+          )
+        : Row(
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Opacity(
+                        opacity: 0.15,
+                        child: Text(
+                          'Pure Water',
+                          style: TextStyle(
+                            fontSize: _size.width * 0.07,
+                            fontWeight: FontWeight.w900,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                      ),
+                      Opacity(
+                        opacity: 0.3,
+                        child: Text(
+                          'Healthy Life',
+                          style: TextStyle(
+                            fontSize: _size.width * 0.07,
+                            fontWeight: FontWeight.w900,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  _contactButton(makePadding: true),
+                ],
+              ),
+              Expanded(
+                child: Image.asset(
+                  CustomImages.frontImage,
+                  fit: BoxFit.contain,
+                ),
+              ),
+            ],
+          );
+  }
+
+  Padding _contactButton({bool makePadding = false}) {
+    return Padding(
+      padding: EdgeInsets.only(right: (makePadding) ? 60 : 0),
+      child: ElevatedButton(
+        onPressed: () {},
+        child: const Text(
+          'CONTACT US',
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+    );
+  }
+
+  Widget _appBar({required double width}) {
+    return (width < Utilities.mobileLimit)
+        ? Padding(
+            padding: const EdgeInsets.only(top: 24),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    _appBapTextButton(text: 'Water Delivery'),
+                    _appBapTextButton(text: 'Filteration'),
+                  ],
+                ),
+                SizedBox(
+                  height: 100,
+                  width: 100,
+                  child: Image.asset(CustomImages.logo),
+                ),
+                Column(
+                  children: <Widget>[
+                    _appBapTextButton(text: 'Vending'),
+                    _appBapTextButton(text: 'Bulk/Wholesale'),
+                  ],
+                ),
+              ],
+            ),
+          )
+        : Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  _appBapTextButton(text: 'Water Delivery'),
+                  _appBapTextButton(text: 'Filteration'),
+                ],
+              ),
+              SizedBox(
+                height: 100,
+                width: 100,
+                child: Image.asset(CustomImages.logo),
+              ),
+              Row(
+                children: <Widget>[
+                  _appBapTextButton(text: 'Vending'),
+                  _appBapTextButton(text: 'Bulk/Wholesale'),
+                ],
+              ),
+            ],
+          );
+  }
+
+  Widget _appBapTextButton({required String text}) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Text(
+        text,
+        style: const TextStyle(color: Colors.blueGrey),
+      ),
+    );
   }
 }
