@@ -1,5 +1,6 @@
-import 'package:conway_web/pages/landing_page.dart';
 import 'package:flutter/material.dart';
+import 'landing_page.dart';
+import 'suggestion_page.dart';
 
 class IndexPage extends StatelessWidget {
   const IndexPage({Key? key}) : super(key: key);
@@ -10,7 +11,8 @@ class IndexPage extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: const <Widget>[
-           LandingPage(),
+          LandingPage(),
+          SuggestionPage(),
         ],
       ),
     );
