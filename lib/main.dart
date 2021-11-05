@@ -36,3 +36,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+// flutter build web
+// firebase deploy --only hosting
+// www.conwaypak.com

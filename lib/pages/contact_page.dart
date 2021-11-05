@@ -49,11 +49,13 @@ class _ContactPageState extends State<ContactPage> {
           ),
           const SizedBox(height: 10),
           (MediaQuery.of(context).size.width < Utilities.mobileLimit)
-              ? Column(
-                  children: <Widget>[
-                    _copyright(),
-                    _powerBy(),
-                  ],
+              ? Center(
+                  child: Column(
+                    children: <Widget>[
+                      _copyright(),
+                      _powerBy(),
+                    ],
+                  ),
                 )
               : Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -71,6 +73,7 @@ class _ContactPageState extends State<ContactPage> {
 
   Row _copyright() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         const SelectableText(
           'Copyright ',
@@ -95,6 +98,7 @@ class _ContactPageState extends State<ContactPage> {
 
   Row _powerBy() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         const SelectableText(
           ' Powered By  ',

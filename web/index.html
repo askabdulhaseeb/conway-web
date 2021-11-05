@@ -5,7 +5,7 @@
 
     <meta charset="UTF-8" />
     <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
-    <meta name="description" content="A new Flutter project." />
+    <meta name="description" content="Phone: 0325 00 18 000" />
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
@@ -17,8 +17,9 @@
 
     <title>Conway Pakistan</title>
     <link rel="manifest" href="manifest.json" />
-  </head>
-  <body>
+  <link rel="stylesheet" type="text/css" href="splash/style.css">
+</head>
+<body style="position: fixed; inset: 0px; overflow: hidden; padding: 0px; margin: 0px; user-select: none; touch-action: none; font: 14px sans-serif; color: red;">
     <script>
       var serviceWorkerVersion = null;
       var scriptLoaded = false;
@@ -70,5 +71,10 @@
         loadMainDartJs();
       }
     </script>
+  <picture id="splash">
+    <source srcset="splash/img/light-1x.png 1x, splash/img/light-2x.png 2x, splash/img/light-3x.png 3x, splash/img/light-4x.png 4x" media="(prefers-color-scheme: light) or (prefers-color-scheme: no-preference)">
+    <source srcset="splash/img/dark-1x.png 1x, splash/img/dark-2x.png 2x, splash/img/dark-3x.png 3x, splash/img/dark-4x.png 4x" media="(prefers-color-scheme: dark)">
+    <img class="center" src="splash/img/light-1x.png" />
+  </picture>
   </body>
 </html>

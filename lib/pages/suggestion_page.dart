@@ -13,7 +13,7 @@ class _SuggestionPageState extends State<SuggestionPage> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300,
+      // height: 300,
       width: double.infinity,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 40),
