@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Conway',
+      title: 'Conway Pakistan',
       theme: ThemeData(
         colorScheme: const ColorScheme(
           primary: Color(0xFF245091),

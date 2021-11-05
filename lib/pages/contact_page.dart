@@ -1,6 +1,6 @@
-import 'package:conway_web/utilities/utilities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/gestures/events.dart';
+import 'package:conway_web/utilities/utilities.dart';
 
 class ContactPage extends StatefulWidget {
   const ContactPage({Key? key}) : super(key: key);
@@ -39,7 +39,7 @@ class _ContactPageState extends State<ContactPage> {
           GestureDetector(
             onTap: () {},
             child: const Text(
-              'Phone: 0300 00 18 000',
+              'Phone: 0325 00 18 000',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.white,
