@@ -74,7 +74,7 @@ class LandingPage extends StatelessWidget {
                       children: <Widget>[
                         Opacity(
                           opacity: 0.15,
-                          child: Text(
+                          child: SelectableText(
                             'Pure Water',
                             style: TextStyle(
                               fontSize: _size.width * 0.07,
@@ -85,7 +85,7 @@ class LandingPage extends StatelessWidget {
                         ),
                         Opacity(
                           opacity: 0.3,
-                          child: Text(
+                          child: SelectableText(
                             'Healthy Life',
                             style: TextStyle(
                               fontSize: _size.width * 0.07,
@@ -115,7 +115,7 @@ class LandingPage extends StatelessWidget {
       padding: EdgeInsets.only(right: (makePadding) ? 60 : 0),
       child: ElevatedButton(
         onPressed: () {},
-        child: const Text(
+        child: const SelectableText(
           'CONTACT US',
           style: TextStyle(color: Colors.white),
         ),
@@ -176,7 +176,7 @@ class LandingPage extends StatelessWidget {
   Widget _appBapTextButton({required String text}) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Text(
+      child: SelectableText(
         text,
         style: const TextStyle(color: Colors.blueGrey),
       ),

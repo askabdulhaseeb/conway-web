@@ -39,7 +39,7 @@ class MineralPage extends StatelessWidget {
       padding: EdgeInsets.all(Utilities.padding),
       child: Column(
         children: <Widget>[
-          Text(
+          SelectableText(
             'Mineral Contents',
             style: TextStyle(
               fontSize: 32,
@@ -137,11 +137,11 @@ class MineralPage extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Text(
+          SelectableText(
             title,
             style: const TextStyle(color: Colors.white),
           ),
-          Text(
+          SelectableText(
             qty,
             style: const TextStyle(color: Colors.white),
           ),

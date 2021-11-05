@@ -60,7 +60,7 @@ class SuggestionPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          Text(
+          SelectableText(
             title,
             style: TextStyle(
               color: Theme.of(context).primaryColor,
@@ -68,7 +68,7 @@ class SuggestionPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 4),
-          Text(
+          SelectableText(
             subtitle,
             maxLines: 3,
             textAlign: TextAlign.center,

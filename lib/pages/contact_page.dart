@@ -14,12 +14,12 @@ class _ContactPageState extends State<ContactPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Theme.of(context).primaryColor,
+      color: Theme.of(context).primaryColor.withOpacity(0.9),
       padding: EdgeInsets.symmetric(vertical: Utilities.padding * 3),
       margin: EdgeInsets.only(top: Utilities.padding * 3),
       child: Column(
         children: <Widget>[
-          const Text(
+          const SelectableText(
             'CONWAY PAKISTAN',
             style: TextStyle(
               color: Colors.white70,
@@ -28,7 +28,7 @@ class _ContactPageState extends State<ContactPage> {
             ),
           ),
           const SizedBox(height: 10),
-          const Text(
+          const SelectableText(
             'Rana Market Near Punjab Motors\nGujranwala Road Doaba Hafizabad',
             textAlign: TextAlign.center,
             style: TextStyle(
@@ -38,7 +38,7 @@ class _ContactPageState extends State<ContactPage> {
           const SizedBox(height: 10),
           GestureDetector(
             onTap: () {},
-            child: const Text(
+            child: const SelectableText(
               'Phone: 0325 00 18 000',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -72,7 +72,7 @@ class _ContactPageState extends State<ContactPage> {
   Row _copyright() {
     return Row(
       children: <Widget>[
-        const Text(
+        const SelectableText(
           'Copyright ',
           textAlign: TextAlign.center,
           style: TextStyle(
@@ -81,7 +81,7 @@ class _ContactPageState extends State<ContactPage> {
           ),
         ),
         const Icon(Icons.copyright, size: 18, color: Colors.white70),
-        Text(
+        SelectableText(
           '${DateTime.now().year} CONWAY   ',
           textAlign: TextAlign.center,
           style: const TextStyle(
@@ -96,7 +96,7 @@ class _ContactPageState extends State<ContactPage> {
   Row _powerBy() {
     return Row(
       children: <Widget>[
-        const Text(
+        const SelectableText(
           ' Powered By  ',
           textAlign: TextAlign.center,
           style: TextStyle(
@@ -116,7 +116,7 @@ class _ContactPageState extends State<ContactPage> {
             onExit: (PointerExitEvent event) => setState(() {
               _mouseIn = false;
             }),
-            child: Text(
+            child: SelectableText(
               'Eyez Soft',
               style: TextStyle(
                 color: (_mouseIn) ? Colors.white : Colors.white70,
