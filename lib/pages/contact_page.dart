@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/gestures/events.dart';
 import 'package:conway_web/utilities/utilities.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactPage extends StatefulWidget {
   const ContactPage({Key? key}) : super(key: key);
@@ -10,6 +11,8 @@ class ContactPage extends StatefulWidget {
 }
 
 class _ContactPageState extends State<ContactPage> {
+  void _launchURL(String url) async =>
+      await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
   bool _mouseIn = false;
   @override
   Widget build(BuildContext context) {
@@ -37,8 +40,10 @@ class _ContactPageState extends State<ContactPage> {
           ),
           const SizedBox(height: 10),
           GestureDetector(
-            onTap: () {},
-            child: const SelectableText(
+            onTap: () {
+              _launchURL('tel:+92 3250018000');
+            },
+            child: const Text(
               'Phone: 0325 00 18 000',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -109,7 +114,9 @@ class _ContactPageState extends State<ContactPage> {
           ),
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            _launchURL('https://eyes-soft.web.app/#/');
+          },
           child: MouseRegion(
             onEnter: (PointerEnterEvent event) => setState(() {
               _mouseIn = true;
@@ -120,7 +127,7 @@ class _ContactPageState extends State<ContactPage> {
             onExit: (PointerExitEvent event) => setState(() {
               _mouseIn = false;
             }),
-            child: SelectableText(
+            child: Text(
               'Eyez Soft',
               style: TextStyle(
                 color: (_mouseIn) ? Colors.white : Colors.white70,

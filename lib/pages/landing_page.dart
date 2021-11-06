@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../utilities/custom_images.dart';
 import '../utilities/utilities.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
   static const String routeName = '/LandingPage';
+  void _launchURL(String url) async =>
+      await canLaunch(url) ? await launch(url) : throw 'Could not launch $url';
 
   @override
   Widget build(BuildContext context) {
@@ -114,8 +117,10 @@ class LandingPage extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(right: (makePadding) ? 60 : 0),
       child: ElevatedButton(
-        onPressed: () {},
-        child: const SelectableText(
+        onPressed: () {
+          _launchURL('tel:+92 3250018000');
+        },
+        child: const Text(
           'CONTACT US',
           style: TextStyle(color: Colors.white),
         ),
